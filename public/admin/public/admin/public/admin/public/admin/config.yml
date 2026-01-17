@@ -1,0 +1,38 @@
+backend:
+  name: github
+  repo: shaneyuz/tjy-cattle-site
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "horses"
+    label: "Horses"
+    folder: "content/horses"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    extension: "md"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Status", name: "status", widget: "select", options: ["Available","Pending","Sold"], default: "Available" }
+      - { label: "Price", name: "price", widget: "number", required: false }
+      - { label: "Age", name: "age", widget: "number", required: false }
+      - { label: "Height", name: "height", widget: "string", required: false }
+      - { label: "Sex", name: "sex", widget: "select", options: ["Gelding","Mare","Stallion"], required: false }
+      - { label: "Disciplines", name: "disciplines", widget: "list", required: false }
+      - { label: "Featured Image", name: "featuredImage", widget: "image", required: false }
+      - { label: "Description", name: "body", widget: "markdown" }
+
+  - name: "gallery"
+    label: "Ranch Life Gallery"
+    folder: "content/gallery"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    extension: "md"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Caption", name: "caption", widget: "string", required: false }
